@@ -118,11 +118,15 @@ If you get errors about `wget.pod` or something similar, the documentation faile
     cd get-wget-lua.tmp
     mv src/wget ../wget-lua
     cd ..
-    
+
 The `get-wget-lua.tmp` name may be inaccurate. If you have a folder with a similar but different name, use that instead and please let us know on IRC what folder name you had!
 
 Optionally, if you know what you're doing, you may want to use wgetpod.patch.
-    
+
+### Problem with gnutls or openssl during get-wget-lua
+
+Please ensure that gnutls-dev(el) and openssl-dev(el) are installed.
+
 ### ImportError: No module named seesaw
 
 If you're sure that you followed the steps to install `seesaw`, permissions on your module directory may be set incorrectly. Try the following:
