@@ -31,7 +31,15 @@ then start downloading with:
 For more options, run:
 
     run-pipeline --help
-    
+
+If you don't have root access and/or your version of pip is very old, you can replace "pip install seesaw" with:
+
+    wget https://raw.github.com/pypa/pip/master/contrib/get-pip.py ; python get-pip.py --user ; ~/.local/bin/pip install --user seesaw
+
+so that pip and seesaw are installed in your home, then run
+
+    ~/.local/bin/run-pipeline pipeline.py --concurrent 2 YOURNICKHERE
+
 Running multiple instances on different IPs
 -------------------------------------------
 
