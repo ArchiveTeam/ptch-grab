@@ -50,7 +50,7 @@ if not WGET_LUA:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20131227.00"
+VERSION = "20131227.01"
 USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27'
 TRACKER_ID = 'ptch'
 TRACKER_HOST = 'tracker.archiveteam.org'
@@ -118,7 +118,6 @@ wget_args = [
     "--page-requisites",
     "--timeout", "60",
     "--tries", "inf",
-    "--wait", "1",
     "--waitretry", "120",
     "--span-hosts",
     "--domains", "ptch.com,ptchcdn.com,viewptch.ptchcdn.com,site-images.ptchcdn.com,site-nav.ptchcdn.com,assets.ptchcdn.com",
