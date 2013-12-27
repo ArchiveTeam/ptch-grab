@@ -1,9 +1,9 @@
 import datetime
 from distutils.version import StrictVersion
+import hashlib
 import os
-import random
 import seesaw
-from seesaw.config import NumberConfigValue
+from seesaw.config import NumberConfigValue, realize
 from seesaw.externalprocess import WgetDownload
 from seesaw.item import ItemInterpolation, ItemValue
 from seesaw.pipeline import Pipeline
@@ -14,7 +14,6 @@ from seesaw.tracker import (GetItemFromTracker, SendDoneToTracker,
 from seesaw.util import find_executable
 import shutil
 import time
-import hashlib
 
 
 # check the seesaw version
@@ -51,7 +50,7 @@ if not WGET_LUA:
 #
 # Update this each time you make a non-cosmetic change.
 # It will be added to the WARC files and reported to the tracker.
-VERSION = "20131219.00"
+VERSION = "20131227.00"
 USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27'
 TRACKER_ID = 'ptch'
 TRACKER_HOST = 'tracker.archiveteam.org'
@@ -73,6 +72,9 @@ class PrepareDirectories(SimpleTask):
 
         # We expect a list of urls (no http:// prefix ok)
         item['url_list'] = item_name.split(',')
+
+        for url in item['url_list']:
+            item.log_output('URL: ' + url)
 
         # Be safe about max filename length
         truncated_item_name = hashlib.sha1(item_name).hexdigest()
@@ -135,7 +137,7 @@ if 'bind_address' in globals():
 
 class WgetArgFactory(object):
     def realize(self, item):
-        return wget_args + item['url_list']
+        return realize(wget_args, item) + item['url_list']
 
 
 ###########################################################################
