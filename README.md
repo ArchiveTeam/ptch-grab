@@ -15,8 +15,10 @@ In most of the below cases, there will be a web interface running at http://loca
 Running with a warrior
 -------------------------
 
-Follow the [instructions on the ArchiveTeam wiki](http://archiveteam.org/index.php?title=Warrior) for installing the Warrior, and select the "Hyves" project in the Warrior interface.
+Follow the [instructions on the ArchiveTeam wiki](http://archiveteam.org/index.php?title=Warrior) for installing the Warrior, and select the "Ptch" project in the Warrior interface.
 
+Running without a warrior
+-------------------------
 To run this outside the warrior, clone this repository and run:
 
     pip install seesaw
